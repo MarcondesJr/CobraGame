@@ -56,7 +56,12 @@ function inicioGame() {
     if(direction == "up") cobraY -= box;
     if(direction == "down") cobraY += box;
 
-    cobra.pop();
+    if(cobraX != food.x || cobraY != food.y){
+        cobra.pop();
+    }else{
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
     
     let novaHead = {
         x: cobraX,
