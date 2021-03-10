@@ -44,6 +44,13 @@ function inicioGame() {
     if(cobra[0].y > 15 * box && direction == "down") cobra[0].y = 0;
     if(cobra[0].y < 0 && direction == "up") cobra[0].y = 16 * box;
 
+    for(i=1; i < cobra.length; i++){
+        if(cobra[0].x == cobra[i].x && cobra[0].y == cobra[i].y){
+            clearInterval(game);
+            alert('GAME OVER :(');
+        }
+    }
+
     criarBOX();
     criarCobra();
     comida();
